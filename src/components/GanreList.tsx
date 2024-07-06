@@ -14,9 +14,10 @@ import { Genre } from "../hooks/useGenres";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -32,6 +33,7 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
               src={getCroppedImageUrl(genre.image_background)}
             ></Image>
             <Button
+              fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
               variant="link"
               fontSize="lg"
               onClick={() => onSelectGenre(genre)}
