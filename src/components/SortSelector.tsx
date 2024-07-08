@@ -14,6 +14,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: SortSelectorProps) => {
     { value: "-released", label: "Release date" },
     { value: "-metacritic", label: "Popularity" },
     { value: "-rating", label: "Average rating" },
+    { value: "rating", label: "Do not try men" },
   ];
 
   const currentSortOrder =
